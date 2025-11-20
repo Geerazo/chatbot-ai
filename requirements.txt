@@ -1,15 +1,17 @@
-# core
+# requirements.txt
 torch==2.3.1
-torchvision==0.18.1
 transformers==4.46.2
 accelerate==0.34.2
 safetensors==0.4.5
 tokenizers==0.20.3
-numpy==1.26.4
-
-# app
 gradio==4.44.0
 langdetect==1.0.9
 rapidfuzz==3.10.1
 PyYAML==6.0.2
+numpy==1.26.4
+# Moderación opcional (comentar para evitar conflictos en prod):
+# detoxify==0.5.1      # requiere transformers==4.22.1 (conflicto)
+# Alternativa: instalar detoxify por separado en entorno aislado
+# pip install "detoxify @ git+https://github.com/unitaryai/detoxify@master"
+torchvision==0.18.1
 python-dotenv==1.0.1
