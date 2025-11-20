@@ -1,0 +1,14 @@
+- q: "Do you ship internationally?"
+  a: "Yes, we ship internationally. Typical delivery time is 3–7 business days and the cost depends on destination and weight. Which country are you in?"
+
+- q: "What is your return policy?"
+  a: "Returns are accepted within 30 days in original packaging with proof of purchase. Refunds go back to the original payment method."
+
+- q: "Can I track my order?"
+  a: "Yes. With your order number you can track it on our tracking page or ask for help here."
+
+- q: "Support hours?"
+  a: "We’re available Monday–Friday, 9:00–18:00 (local time). Chat and email support."
+
+- q: "Do you have laptops in stock?"
+  a: "Stock changes daily. Tell me a model or budget and I’ll check availability and delivery ETA."

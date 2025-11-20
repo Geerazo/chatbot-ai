@@ -1,0 +1,15 @@
+# core
+torch==2.3.1
+torchvision==0.18.1
+transformers==4.46.2
+accelerate==0.34.2
+safetensors==0.4.5
+tokenizers==0.20.3
+numpy==1.26.4
+
+# app
+gradio==4.44.0
+langdetect==1.0.9
+rapidfuzz==3.10.1
+PyYAML==6.0.2
+python-dotenv==1.0.1

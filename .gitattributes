@@ -1,0 +1,27 @@
+# --- Normalización por defecto (repositorio guarda LF)
+* text=auto eol=lf
+
+# Textos que SIEMPRE deben ser LF
+*.py   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.md   text eol=lf
+*.csv  text eol=lf
+*.sh   text eol=lf
+
+# Archivos que en Windows suelen requerir CRLF en el working tree
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Archivos binarios comunes
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.ttf  binary
+*.otf  binary
+*.woff binary
+*.woff2 binary

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# HF / Torch caches
+.cache/
+huggingface/
+*.safetensors
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# App logs
+logs/
+*.log
+
+# Datos locales
+data/*.csv
+!data/products.sample.csv
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
