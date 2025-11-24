@@ -10,4 +10,4 @@ rapidfuzz==3.10.1
 PyYAML==6.0.2
 numpy==1.26.4
 torchvision==0.18.1
-python-dotenv==1.0.1
+python-dotenv==1.2.1
