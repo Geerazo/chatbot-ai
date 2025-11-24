@@ -1,3 +1,6 @@
+![CI](https://img.shields.io/github/actions/workflow/status/Geerazo/chatbot-ai/ci.yml?branch=main&label=CI)
+![CodeQL](https://img.shields.io/github/actions/workflow/status/Geerazo/chatbot-ai/codeql.yml?branch=main&label=CodeQL)
+![License](https://img.shields.io/github/license/Geerazo/chatbot-ai)
 # TechStore · Asistente Virtual (ES/EN)
 
 Chatbot bilingüe para atención al cliente (envíos, devoluciones, stock) con **Qwen** + **Gradio**.  

@@ -49,8 +49,6 @@ from transformers.utils import logging as hf_logging
 import gradio as gr
 from dataclasses import dataclass
 import csv
-
-from dataclasses import dataclass
 from typing import List, Tuple, Optional
 from rapidfuzz import process, fuzz
 import yaml
@@ -262,6 +260,8 @@ def build_chat_messages(lang: str, history_pairs: list[tuple[str, str]], user_ms
 
 # [S5.4] Refinado de salida
 def _refine_concise(text: str, lang: str) -> str:
+    if len(text) > 1000:
+        text = text[:1000]
     sents = re.split(r'(?<=[.!?])\s+', text.strip())
     sents = [s for s in sents if s]
     core = " ".join(sents[:2]) if len(sents) >= 2 else (sents[0] if sents else text)
@@ -320,7 +320,7 @@ def _encode_and_generate(tok, mdl, chat_messages, bad_ids, eos_id):
 # ===============================
 
 # --- [S7.1] Utilidades de parsing para dinero -------------------------------
-_NUM_RE = re.compile(r"[-+]?\d[\d.,]*")
+_NUM_RE = re.compile(r"[-+]?\d[\d.,]{0,20}")
 
 def _to_float(text: str | None) -> float | None:
     if not text:
@@ -484,7 +484,7 @@ def _normalize_terms(query: str | None) -> list[str]:
         "portatiles": "laptop",
         "gaming": "gamer",
     }
-    raw_terms = re.findall(r"[a-záéíóúñ0-9\-]+", q)
+    raw_terms = re.findall(r"[a-záéíóúñ0-9\-]{1,50}", q)
     terms = []
     for t in raw_terms:
         t2 = syn.get(t, t)
@@ -623,7 +623,10 @@ def extract_slots(intent: str, text: str, lang: str) -> dict:
 
     elif intent == "returns":
         import re as _re
-        m = _re.search(r"(pedido|orden|order)\s*#?\s*([A-Z0-9\-]{5,})", tl, flags=_re.IGNORECASE)
+        if len(tl) > 200: 
+            m = None
+        else:
+            m = _re.search(r"(pedido|orden|order)\s{0,10}#?\s{0,10}([A-Z0-9\-]{5,20})", tl, flags=_re.IGNORECASE)
         slots["order_id"] = m.group(2).upper() if m else None
 
     elif intent == "stock":
@@ -911,7 +914,7 @@ def generate_reply(user_message: str,
             t = t[:max_len]
 
         # elimina caracteres/patrones comunes de inyección o markup
-        t = re.sub(r"[`{}<>]|@|</?script[^>]*>", " ", t, flags=re.IGNORECASE)
+        t = re.sub(r"[`{}<>@]|</?script[^>]{0,50}>", " ", t, flags=re.IGNORECASE)
         t = t.replace("\x00", " ").replace("\r", " ")
         # evita prefijos tipo "SYSTEM:" "ASSISTANT:" dentro del contexto
         t = re.sub(r"\b(system|assistant|user)\s*:\s*", " ", t, flags=re.IGNORECASE)
