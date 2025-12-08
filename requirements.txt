@@ -7,7 +7,7 @@ tokenizers==0.20.3
 gradio==4.44.0
 langdetect==1.0.9
 rapidfuzz==3.10.1
-PyYAML==6.0.2
+PyYAML==6.0.3
 numpy==1.26.4
 torchvision==0.18.1
 python-dotenv==1.0.1
